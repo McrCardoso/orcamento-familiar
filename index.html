@@ -1,6 +1,44 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
+  <meta charset="UTF-8">
+  <title>Orçamento Familiar</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      margin: 0; padding: 0;
+    }
+    #loginBox {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    #loginBox input {
+      padding: 10px;
+      font-size: 16px;
+      margin-right: 10px;
+    }
+    #content { display: none; }
+  </style>
+</head>
+<body>
+  <!-- Caixa de senha -->
+  <div id="loginBox">
+    <div>
+      <h2>🔒 Acesso Restrito</h2>
+      <input type="password" id="passwordInput" placeholder="Introduza a senha">
+      <button onclick="checkPassword()">Entrar</button>
+      <p id="error" style="color:red; display:none;">Senha incorreta!</p>
+    </div>
+  </div>
+
+  <!-- Conteúdo original -->
+  <div id="content">
+  <!DOCTYPE html>
+<html lang="pt">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orçamento Familiar - Divisão Proporcional (Editável)</title>
@@ -572,5 +610,20 @@
             document.getElementById('lastUpdate').textContent = new Date().toLocaleString('pt-PT');
         });
     </script>
+</body>
+</html>
+  </div>
+
+  <script>
+    function checkPassword() {
+      const pass = document.getElementById("passwordInput").value;
+      if (pass === "052474") {
+        document.getElementById("loginBox").style.display = "none";
+        document.getElementById("content").style.display = "block";
+      } else {
+        document.getElementById("error").style.display = "block";
+      }
+    }
+  </script>
 </body>
 </html>

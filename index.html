@@ -41,7 +41,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Orçamento Familiar - Divisão Proporcional</title>
+    <title>Orçamento Familiar - Divisão</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -324,17 +324,17 @@
             <h2>💰 Rendimentos Mensais</h2>
             <div class="income-inputs">
                 <div class="input-group">
-                    <label for="incomeHusband">Rendimento Marido (€)</label>
+                    <label for="incomeHusband">Rendimento 1º Titular (€)</label>
                     <input type="number" id="incomeHusband" value="2500" onchange="updateCalculations()">
                 </div>
                 <div class="input-group">
-                    <label for="incomeWife">Rendimento Mulher (€)</label>
+                    <label for="incomeWife">Rendimento 2º Titular (€)</label>
                     <input type="number" id="incomeWife" value="905" onchange="updateCalculations()">
                 </div>
                 <div class="total-display">
                     <div>Total: €<span id="totalIncome">3405</span></div>
                     <div style="font-size: 14px; margin-top: 5px;">
-                        Marido: <span id="husbandPercent">73.4</span>% | Mulher: <span id="wifePercent">26.6</span>%
+                        1º Titular: <span id="husbandPercent">73.4</span>% | 2º Titular: <span id="wifePercent">26.6</span>%
                     </div>
                 </div>
             </div>
@@ -378,8 +378,8 @@
                 <tr>
                     <th style="width: 30%;">Despesa</th>
                     <th style="width: 15%;">Valor Total</th>
-                    <th style="width: 18%;">Marido (<span id="tableHusbandPercent">73.4</span>%)</th>
-                    <th style="width: 18%;">Mulher (<span id="tableWifePercent">26.6</span>%)</th>
+                    <th style="width: 18%;">1º Titular (<span id="tableHusbandPercent">73.4</span>%)</th>
+                    <th style="width: 18%;">2º Titular (<span id="tableWifePercent">26.6</span>%)</th>
                     <th style="width: 10%;">% do Total</th>
                     <th style="width: 9%;">Ações</th>
                 </tr>
@@ -391,14 +391,14 @@
 
         <div class="remaining-section">
             <div class="remaining-card">
-                <h3>💰 Disponível Marido</h3>
+                <h3>💰 Disponível 1º Titular</h3>
                 <div class="amount">€<span id="husbandRemaining">1607.93</span></div>
                 <div style="margin-top: 10px; font-size: 14px;">
                     €<span id="husbandIncomeDisplay">2500</span> - €<span id="husbandContribution">892.07</span>
                 </div>
             </div>
             <div class="remaining-card">
-                <h3>💰 Disponível Mulher</h3>
+                <h3>💰 Disponível 2º Titular</h3>
                 <div class="amount">€<span id="wifeRemaining">582.07</span></div>
                 <div style="margin-top: 10px; font-size: 14px;">
                     €<span id="wifeIncomeDisplay">905</span> - €<span id="wifeContribution">322.93</span>
@@ -587,7 +587,7 @@
             const husbandPercent = (incomeHusband / totalIncome) * 100;
             const wifePercent = (incomeWife / totalIncome) * 100;
             
-            let csv = 'Despesa,Valor Total,Marido (' + husbandPercent.toFixed(1) + '%),Mulher (' + wifePercent.toFixed(1) + '%)\\n';
+            let csv = 'Despesa,Valor Total,1º Titular (' + husbandPercent.toFixed(1) + '%),2º Titular (' + wifePercent.toFixed(1) + '%)\\n';
             
             expenses.forEach(expense => {
                 const husbandShare = expense.value * (husbandPercent / 100);
